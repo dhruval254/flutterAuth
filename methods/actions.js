@@ -23,9 +23,9 @@ var functions={
         }
     },
     authenticate: function(req,res){
-        User.findOne()({
+        User.findOne({
             name: req.body.name
-        }, function(err,user){
+        }), function(err,user){
             if(err) throw err
             if(!user){
                 res.status(403).send({success: false,msg:'Authentication Failed, User not found'})
